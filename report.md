@@ -42,6 +42,10 @@ https://infocisco.ru/prefix_network_mask.html<br>
 ### Добавление статического маршрута вручную
 Добавление статического маршрута от одной машины до другой и обратно при помощи команды ip r add. <br>
 ws1 - `sudo ip r add 172.24.116.8 dev enp0s8`  ws2 - `sudo ip r add 192.168.100.10 dev enp0s8` <br>
+![версия ubuntu](scr13.PNG)<br>
+### Добавление статического маршрута с сохранением
+`sudo vim /etc/netplan/00-installer-config.yaml`<br>
+`sudo netplan apply` `reboot`
 ![версия ubuntu](scr14.PNG)<br>
 ![версия ubuntu](scr13.PNG)<br>
 
@@ -53,5 +57,8 @@ ws1 - `sudo ip r add 172.24.116.8 dev enp0s8`  ws2 - `sudo ip r add 192.168.100.
 1 Gbps = 1000 Mbps.<br>
 * Утилита iperf3<br>
 Измерить скорость соединения между ws1 и ws2<br>
-`sudo apt install iperf3` `iperf3 -s`
+`sudo apt install iperf3` <br>
+ws1`iperf3 -s`<br>
+ws2`iperf3 -c 192.168.100.10 -p 5201`<br>
+![версия ubuntu](scr3.1.PNG)<br>
 
