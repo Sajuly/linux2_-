@@ -76,3 +76,7 @@ ws2`iperf3 -c 192.168.100.10 -p 5201`<br>
 ws1 - INPUT для пакетов на ping-reply DROP - не работает т.е. пакеты отправляет, но не принемает.<br>
 ws2 - INPUT для пакетов на ping-reply ACCEPT - работает.<br>
 ![версия ubuntu](scr4.2.PNG)<br>
+## Утилита nmap
+Устанавливаем nmap `sudo apt-get install nmap`<br>
+Командой ping найти машину, которая не "пингуется", после чего утилитой nmap показать, что хост машины запущен.<br>
+![версия ubuntu](scr4.3.PNG)<br>
