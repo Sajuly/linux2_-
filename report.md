@@ -35,13 +35,14 @@ https://infocisco.ru/prefix_network_mask.html<br>
 * В отчёт поместить скрины с содержанием изменённого файла etc/netplan/00-installer-config.yaml для каждой машины.
 Выключаем машины - настройки(для каждой) - сеть - адаптер 2 - вкл - тип подключения: внутреняя сеть - имена должны быть одинковы для обеих машин.<br>
 `sudo vim /etc/netplan/00-installer-config.yaml`<br>
-![версия ubuntu](scr14.PNG)<br>
-`sudo netplan apply` && `ip a`<br>
+![версия ubuntu](scr11.PNG)<br>
+`sudo netplan apply` && `ip a` `reboot` <br>
 ![версия ubuntu](scr12.PNG)<br>
 
 ### Добавление статического маршрута вручную
 Добавление статического маршрута от одной машины до другой и обратно при помощи команды ip r add. <br>
 ws1 - `sudo ip r add 172.24.116.8 dev enp0s8`  ws2 - `sudo ip r add 192.168.100.10 dev enp0s8` <br>
+![версия ubuntu](scr14.PNG)<br>
 ![версия ubuntu](scr13.PNG)<br>
 
 ## Part 3. Утилита iperf3
