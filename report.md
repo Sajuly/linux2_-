@@ -137,19 +137,22 @@ ws11<br>
 * в файле /etc/resolv.conf прописать nameserver 8.8.8.8.
 ![версия ubuntu](scr6.2.PNG)<br>
 * Перезагрузить службу DHCP командой systemctl restart isc-dhcp-server
+`sudo apt install isc-dhcp-server`
 ![версия ubuntu](scr6.3.PNG)<br>
 Машину ws21 перезагрузить при помощи `reboot` и через `ip a` показать, что она получила адрес.
+![версия ubuntu](scr6.4.1.PNG)<br>
 ![версия ubuntu](scr6.4.PNG)<br>
 Также пропинговать ws22 && ws21.
 ![версия ubuntu](scr6.5.PNG)<br>
 Указать MAC адрес у ws11, для этого в etc/netplan/00-installer-config.yaml надо добавить строки: macaddress: 10:10:10:10:10:BA, dhcp4: true
 ![версия ubuntu](scr6.6.PNG)<br>
-Для r1 настроить аналогично r2, но сделать выдачу адресов с жесткой привязкой к MAC-адресу (ws11). Провести аналогичные тесты.
+Для r1 настроить аналогично r2, но сделать выдачу адресов с жесткой привязкой к MAC-адресу (ws11). Провести аналогичные тесты. ` /etc/dhcp/dhcpd.conf `
 ![версия ubuntu](scr6.7.PNG)<br>
 в файле r1 /etc/resolv.conf прописать nameserver 8.8.8.8.
 ![версия ubuntu](scr6.8.PNG)<br>
 Перезагрузить r1 службу DHCP командой systemctl restart isc-dhcp-server<br>
 Машину ws11 перезагрузить при помощи sudo reboot и через ip a показать, что она получила адрес.<br>
 ![версия ubuntu](scr6.9.PNG)<br>
-* Запросить с ws21 обновление ip адреса
+Запросить с ws21 обновление ip адреса
+dhclient -r && dhclient -v
 ![версия ubuntu](scr6.10.PNG)<br>
