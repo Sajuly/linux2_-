@@ -80,3 +80,16 @@ ws2 - INPUT для пакетов на ping-reply ACCEPT - работает.<br>
 Устанавливаем nmap `sudo apt-get install nmap`<br>
 Командой ping найти машину, которая не "пингуется", после чего утилитой nmap показать, что хост машины запущен.<br>
 ![версия ubuntu](scr4.3.PNG)<br>
+## Part 5. Статическая маршрутизация сети
+# 5.1. Настройка адресов машин
+Настроить конфигурации машин в etc/netplan/00-installer-config.yaml согласно сети на рисунке.<br>
+![версия ubuntu](scr5.1.PNG)<br>
+`sudo vim /etc/netplan/00-installer-config.yaml`<br>
+![версия ubuntu](scr5.1.1.PNG)<br>
+`sudo netplan apply`<br>
+Перезапустить сервис сети. Если ошибок нет, то командой ip -4 a проверить, что адрес машины задан верно. Также пропинговать ws22 && ws21. Аналогично пропинговать r1 && ws11.<br>
+![версия ubuntu](scr5.1.ws11.PNG)<br>
+![версия ubuntu](scr5.1.r1.PNG)<br>
+![версия ubuntu](scr5.1.ws21.PNG)<br>
+![версия ubuntu](scr5.1.ws22.PNG)<br>
+# 5.2. Включение переадресации IP-адресов.
