@@ -194,3 +194,15 @@ dhclient -r && dhclient -v
 Проверить соединение по TCP для DNAT, для этого с r1 подключиться к серверу Apache на ws22 командой telnet (обращаться по адресу r2 и порту 80)<br>
 ![версия ubuntu](scr7.9.PNG)<br>
 ## Part 8. Дополнительно. Знакомство с SSH Tunnels
+* Запустить на r2 фаервол с правилами из Части 7 `sh /etc/firewall.sh`<br>
+* Запустить веб-сервер Apache на ws22 только на localhost (то есть в файле /etc/apache2/ports.conf изменить строку Listen 80 на Listen localhost:80)
+![версия ubuntu](scr8.1.PNG)<br>
+`service apache2 start`<br>
+* Воспользоваться Local TCP forwarding с ws21 до ws22, чтобы получить доступ к веб-серверу на ws22 с ws21
+`apt install openssh-server` (на обеих машинах)<br>
+![версия ubuntu](scr8.2.PNG)<br>
+![версия ubuntu](scr8.3.PNG)<br>
+Воспользоваться Remote TCP forwarding c ws11 до ws22, чтобы получить доступ к веб-серверу на ws22 с ws11<br>
+![версия ubuntu](scr8.4.PNG)<br>
+![версия ubuntu](scr8.5.PNG)<br>
+
